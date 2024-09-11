@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file: db/school_admin.db"
+}
+
+model Employed {
+  id       String  @id @default(uuid())
+  fullname String
+  email    String  @unique
+  password String
+  owner    Boolean @default(false)
+
+  @@map("employeds")
+}
+
+model Student {
+  id       String    @id @default(uuid())
+  fullname String
+  cpf      String    @unique
+  presence Boolean   @default(false)
+  status   Boolean   @default(true)
+  class    ClassRoom @relation(fields: [classId], references: [id])
+  classId  String
+
+  @@map("students")
+}
+
+model Teacher {
+  id       String    @id @default(uuid())
+  fullname String
+  status   Boolean   @default(true)
+  class    ClassRoom @relation(fields: [classId], references: [id])
+  classId  String    @unique
+
+  @@map("teachers")
+}
+
+model Monitor {
+  id       String    @id @default(uuid())
+  fullname String
+  status   Boolean   @default(true)
+  class    ClassRoom @relation(fields: [classId], references: [id])
+  classId  String    @unique
+
+  @@map("monitors")
+}
+
+model ClassRoom {
+  id         String    @id @default(uuid())
+  nameClass  String
+  classId    String    @unique
+  id_student String
+  class      Monitor?
+  teacher    Teacher?
+  students   Student[]
+
+  @@map("classrooms")
+}
