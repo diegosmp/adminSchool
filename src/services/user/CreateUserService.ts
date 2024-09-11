@@ -8,7 +8,7 @@ interface UserRequest {
   password: string
 }
 
-class CreateUserController {
+class CreateUserService {
   async execute({ email, password, fullname }: UserRequest) {
     const isValidateEmail = isValidEmail(email)
     if (!isValidateEmail) {
@@ -25,4 +25,4 @@ class CreateUserController {
   }
 }
 
-export { CreateUserController }
+export { CreateUserService }
