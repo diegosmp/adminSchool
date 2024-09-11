@@ -58,9 +58,10 @@ model Monitor {
 model ClassRoom {
   id         String    @id @default(uuid())
   nameClass  String
-  classId    String    @unique
-  id_student String
-  class      Monitor?
+  classTitle String    @unique
+  courseName String
+  status     Boolean   @default(true)
+  monitor    Monitor?
   teacher    Teacher?
   students   Student[]
 
