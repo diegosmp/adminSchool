@@ -15,11 +15,22 @@ class CreateUserService {
       throw new Error('E-mail is invalid!')
     }
     const passwordHash = await bcrypt.hash(password, 8)
+
+    const isUserVerify = await prismaCliente.employed.findMany({ where: { email } })
+
+    if (isUserVerify) {
+      throw new Error('E-mail existing!')
+    }
+
     const user = await prismaCliente.employed.create({
       data: {
         fullname,
         email,
         password: passwordHash,
+      },
+      select: {
+        fullname: true,
+        email: true,
       },
     })
 
