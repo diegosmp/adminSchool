@@ -14,4 +14,4 @@ app.use((err: Error, req: Request, res: Response, nex: NextFunction) => {
   return res.status(500).json({ error: 'Error instance of connect server!' })
 })
 
-app.listen(3333)
+app.listen(process.env.PORT || 5000)
