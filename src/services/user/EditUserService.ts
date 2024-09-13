@@ -2,17 +2,17 @@ import { prismaCliente } from '../../prisma/prisma'
 
 interface UserRequest {
   email: string
-  password: string
+  fullname: string
   user_id: string
 }
 
 class EditUserService {
-  async execute({ email, password, user_id }: UserRequest) {
+  async execute({ email, fullname, user_id }: UserRequest) {
     const user = await prismaCliente.employed.update({
       where: { id: user_id },
       data: {
         email,
-        password,
+        fullname,
       },
     })
 
