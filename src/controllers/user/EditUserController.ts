@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { EditUserService } from '../services/user/EditUserService'
+import { EditUserService } from '../../services/user/EditUserService'
 
 class EditUserController {
   async handle(req: Request, res: Response) {

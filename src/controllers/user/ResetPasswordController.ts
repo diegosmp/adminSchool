@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { ResetPasswordService } from '../services/user/ResetPasswordService'
+import { ResetPasswordService } from '../../services/user/ResetPasswordService'
 
 class ResetPasswordController {
   async handle(req: Request, res: Response) {

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { ProfileUserService } from '../services/user/ProfileUserService'
+import { ProfileUserService } from '../../services/user/ProfileUserService'
 
 class ProfileUserController {
   async handle(req: Request, res: Response) {
