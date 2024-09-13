@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express'
 import 'express-async-errors'
 import { config } from 'dotenv'
 import getUserRoute from './routes/get-user-route'
+import cors from 'cors'
 
 config()
 
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 5000
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.use('/users', getUserRoute)
 
