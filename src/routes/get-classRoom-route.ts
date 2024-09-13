@@ -6,6 +6,6 @@ import { ProfileClassRoomController } from '../controllers/classroom/ProfileClas
 const route = Router()
 
 route.post('/create', isAuthenticated, new CreateClassRoomController().handle)
-route.get('/profile', isAuthenticated, new ProfileClassRoomController().handle)
+route.get('/details', isAuthenticated, new ProfileClassRoomController().handle)
 
 export default route

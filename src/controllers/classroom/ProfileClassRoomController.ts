@@ -5,7 +5,7 @@ class ProfileClassRoomController {
   async handle(req: Request, res: Response) {
     const classId = req.query.classId as string
     const profileClassRoomService = new ProfileClassRoomService()
-    const classRoom = profileClassRoomService.execute(classId)
+    const classRoom = await profileClassRoomService.execute(classId)
 
     return res.json(classRoom)
   }
