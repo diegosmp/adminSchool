@@ -8,6 +8,8 @@ interface UserRequest {
 
 class EditUserService {
   async execute({ email, fullname, user_id }: UserRequest) {
+    console.log(user_id)
+
     const user = await prismaCliente.employed.update({
       where: { id: user_id },
       data: {
