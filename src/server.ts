@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express'
 import 'express-async-errors'
 import { config } from 'dotenv'
 import getUserRoute from './routes/get-user-route'
+import getTeacherRoute from './routes/get-teacher-route'
 import cors from 'cors'
 
 config()
@@ -13,6 +14,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/users', getUserRoute)
+app.use('/teachers', getTeacherRoute)
 
 app.use((err: Error, req: Request, res: Response, nex: NextFunction) => {
   if (err instanceof Error) {
