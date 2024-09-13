@@ -5,7 +5,7 @@ class CreateTeacherController {
   async handle(req: Request, res: Response) {
     const { fullname, classId } = req.body
     const createTeacherService = new CreateTeacherService()
-    const teacher = createTeacherService.execute({ fullname, classId })
+    const teacher = await createTeacherService.execute({ fullname, classId })
 
     return res.json(teacher)
   }
