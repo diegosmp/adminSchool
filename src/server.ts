@@ -4,6 +4,7 @@ import { config } from 'dotenv'
 import getUserRoute from './routes/get-user-route'
 import getClassRoomRoute from './routes/get-classRoom-route'
 import getTeacherRoute from './routes/get-teacher-route'
+import getMonitorRoute from './routes/get-monior-route'
 import cors from 'cors'
 
 config()
@@ -17,6 +18,7 @@ app.use(cors())
 app.use('/users', getUserRoute)
 app.use('/classrooms', getClassRoomRoute)
 app.use('/teachers', getTeacherRoute)
+app.use('/monitors', getMonitorRoute)
 
 app.use((err: Error, req: Request, res: Response, nex: NextFunction) => {
   if (err instanceof Error) {
