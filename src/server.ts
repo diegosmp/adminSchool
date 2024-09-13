@@ -5,6 +5,7 @@ import getUserRoute from './routes/get-user-route'
 import getClassRoomRoute from './routes/get-classRoom-route'
 import getTeacherRoute from './routes/get-teacher-route'
 import getMonitorRoute from './routes/get-monior-route'
+import getStudentRoute from './routes/get-student-route'
 import cors from 'cors'
 
 config()
@@ -19,6 +20,7 @@ app.use('/users', getUserRoute)
 app.use('/classrooms', getClassRoomRoute)
 app.use('/teachers', getTeacherRoute)
 app.use('/monitors', getMonitorRoute)
+app.use('/students', getStudentRoute)
 
 app.use((err: Error, req: Request, res: Response, nex: NextFunction) => {
   if (err instanceof Error) {
