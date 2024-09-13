@@ -1,6 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express'
 import 'express-async-errors'
+import { config } from 'dotenv'
 import getUserRoute from './routes/get-user-route'
+
+config()
 
 const PORT = process.env.PORT || 5000
 
