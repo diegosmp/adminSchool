@@ -1,6 +1,7 @@
 <h1 align="center">Gerenciador de Escola</h1>
 
 <p id="sobre">Este projeto foi desenvolvido para facilitar o gerenciamento de uma escola, permitindo o cadastro e a gestão de professores, estudantes, monitores e salas. O sistema oferece a visualização detalhada dos alunos e suas respectivas salas, além de permitir o controle de presença dos estudantes e o acesso aos dados de cada indivíduo cadastrado. Em cada sala, é possível visualizar todos os alunos, o monitor responsável e o professor alocado.</p>
+<a href="https://github.com/diegosmp/adminSchoolFront" target="_Blank">Front end</a>
 
 ## 📋 Índice
 
@@ -25,7 +26,7 @@ Além disso, recomenda-se o uso de um editor de código como [VSCode](https://co
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/tgmarinho/nlw1
+$ git clone https://github.com/diegosmp/adminSchool.git
 
 # Acesse a pasta do projeto
 $ cd adminSchool
