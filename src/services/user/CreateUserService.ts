@@ -3,13 +3,14 @@ import bcrypt from 'bcryptjs'
 import isValidEmail from '../../utils/isValidateEmail'
 
 interface UserRequest {
-  fullname: string
+  firstname: string
+  secondname: string
   email: string
   password: string
 }
 
 class CreateUserService {
-  async execute({ email, password, fullname }: UserRequest) {
+  async execute({ email, password, firstname, secondname }: UserRequest) {
     const isValidateEmail = isValidEmail(email)
     if (!isValidateEmail) {
       throw new Error('E-mail is invalid!')
@@ -18,13 +19,15 @@ class CreateUserService {
 
     const user = await prismaCliente.employed.create({
       data: {
-        fullname,
+        firstname,
+        secondname,
         email,
         password: passwordHash,
       },
       select: {
         id: true,
-        fullname: true,
+        firstname: true,
+        secondname: true,
         email: true,
       },
     })
