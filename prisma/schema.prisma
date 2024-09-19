@@ -9,7 +9,8 @@ datasource db {
 
 model Employed {
   id       String  @id @default(uuid())
-  fullname String
+  firstname String
+  secondname String
   email    String  @unique
   password String
   owner    Boolean @default(false)
@@ -19,7 +20,8 @@ model Employed {
 
 model Student {
   id       String    @id @default(uuid())
-  fullname String
+  firstname String
+  secondname String
   cpf      String    @unique
   presence Boolean   @default(false)
   status   Boolean   @default(true)
@@ -31,7 +33,8 @@ model Student {
 
 model Teacher {
   id       String    @id @default(uuid())
-  fullname String
+  firstname String
+  secondname String
   status   Boolean   @default(true)
   class    ClassRoom @relation(fields: [classId], references: [id])
   classId  String    @unique
@@ -41,7 +44,8 @@ model Teacher {
 
 model Monitor {
   id       String    @id @default(uuid())
-  fullname String
+  firstname String
+  secondname String
   status   Boolean   @default(true)
   class    ClassRoom @relation(fields: [classId], references: [id])
   classId  String    @unique
@@ -53,11 +57,19 @@ model ClassRoom {
   id         String    @id @default(uuid())
   nameClass  String
   classTitle String    @unique
-  courseName String
   status     Boolean   @default(true)
+  course      Course?
   monitor    Monitor?
   teacher    Teacher?
   students   Student[]
 
   @@map("classrooms")
+}
+
+model Course {
+  id String @id @default(uuid())
+  course String
+  namecourse ClassRoom @relation(fields: [classId], references: [id])
+  classId String @unique
+  @@map("courses")
 }
